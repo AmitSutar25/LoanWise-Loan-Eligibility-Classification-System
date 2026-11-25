@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>LoanWise | Eligibility Assessment</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="#"><span class="brand-icon">L</span><span>LoanWise<small>ELIGIBILITY CLASSIFIER</small></span></a>
+  <nav><a class="active" href="#apply">Apply</a><a href="#how">How it works</a><a href="#history">Applications</a></nav>
+</header>
+<main>
+  <section class="hero">
+    <div><span class="eyebrow">SMART FINANCIAL ASSESSMENT</span><h1>Understand your loan<br><em>eligibility.</em></h1>
+    <p>Enter your financial details to receive an educational estimate from our machine-learning demonstration model.</p>
+    <a class="primary-link" href="#apply">Check eligibility <span>→</span></a></div>
+    <div class="hero-card"><div class="hero-card-top"><span>ASSESSMENT OVERVIEW</span><span class="pulse"></span></div><div class="hero-score">AI<span>+</span></div><h3>Data-informed assessment</h3><p>Instant demonstration prediction using a trained classification model.</p><div class="mini-bars"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><small>EDUCATIONAL TOOL · NOT A LENDING DECISION</small></div>
+  </section>
+  <section class="content-grid" id="apply">
+    <div class="form-panel">
+      <div class="section-heading"><div><span class="eyebrow">APPLICATION DETAILS</span><h2>Applicant information</h2></div><span class="step">01 / 01</span></div>
+      <form id="loan-form">
+        <div class="field-grid">
+          <label>Applicant name<input name="applicant_name" required maxlength="100" placeholder="e.g. Alex Morgan"></label>
+          <label>Email address<input name="email" type="email" required maxlength="150" placeholder="alex@example.com"></label>
+          <label>Applicant income (monthly ₹)<input name="applicant_income" type="number" min="0" step="100" required placeholder="50000"></label>
+          <label>Co-applicant income (monthly ₹)<input name="coapplicant_income" type="number" min="0" step="100" value="0" required></label>
+          <label>Existing monthly debt (₹)<input name="monthly_debt" type="number" min="0" step="100" value="0" required></label>
+          <label>Requested loan amount (₹)<input name="loan_amount" type="number" min="1" step="1000" required placeholder="500000"></label>
+          <label>Loan term (months)<select name="loan_term" required><option value="12">12 months</option><option value="36">36 months</option><option value="60">60 months</option><option value="120">120 months</option><option value="180">180 months</option><option value="240">240 months</option><option value="360" selected>360 months</option></select></label>
+          <label>Credit history<select name="credit_history" required><option value="1">Good / no recorded defaults</option><option value="0">Limited or adverse history</option></select></label>
+          <label>Employment type<select name="employment_type"><option value="salaried">Salaried</option><option value="self_employed">Self-employed</option><option value="other">Other</option></select></label>
+          <label>Loan purpose<select name="loan_purpose"><option value="home">Home</option><option value="education">Education</option><option value="vehicle">Vehicle</option><option value="personal">Personal</option><option value="business">Business</option></select></label>
+        </div>
+        <div class="notice"><strong>Privacy note</strong><span>Use sample information for demonstrations. Do not enter real financial or personally identifiable information into this portfolio project.</span></div>
+        <button class="submit-btn" type="submit" id="submit-btn">Assess eligibility <span>→</span></button>
+      </form>
+      <div id="error" class="error" role="alert"></div>
+    </div>
+    <aside class="result-panel" id="result-panel">
+      <span class="eyebrow">YOUR RESULT</span><div class="result-placeholder"><div class="result-symbol">◎</div><h3>Ready when you are</h3><p>Complete the application form to see the model's demonstration prediction here.</p></div>
+      <div id="result" hidden></div>
+      <div class="result-foot"><span class="lock">▣</span> Demo assessment only. Not financial advice or a credit decision.</div>
+    </aside>
+  </section>
+  <section class="how" id="how"><span class="eyebrow">THE PROCESS</span><h2>How the assessment works</h2><div class="how-grid"><article><b>01</b><h3>Share details</h3><p>Provide basic income, debt, loan and credit-history inputs.</p></article><article><b>02</b><h3>Model analysis</h3><p>A demonstration Random Forest classifier processes the submitted features.</p></article><article><b>03</b><h3>View prediction</h3><p>See the predicted class and a model score, with clear limitations.</p></article></div></section>
+  <section class="history" id="history"><div class="section-heading"><div><span class="eyebrow">RECENT RECORDS</span><h2>Application history</h2></div><button class="refresh-btn" id="refresh-history" type="button">Refresh ↻</button></div><div class="table-wrap"><table><thead><tr><th>Applicant</th><th>Loan amount</th><th>Prediction</th><th>Date (UTC)</th></tr></thead><tbody id="history-body"><tr><td colspan="4">Loading applications…</td></tr></tbody></table></div></section>
+</main>
+<footer><span>LoanWise © 2026</span><span>Built with Python · Flask · Scikit-learn · Docker · AWS</span></footer>
+<script src="/script.js"></script>
+</body></html>

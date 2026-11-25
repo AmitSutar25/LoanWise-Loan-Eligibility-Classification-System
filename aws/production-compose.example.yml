@@ -1,0 +1,18 @@
+# Example production compose file for EC2. Replace image URIs and inject secrets securely.
+services:
+  backend:
+    image: ACCOUNT_ID.dkr.ecr.ap-south-1.amazonaws.com/loanwise-backend:latest
+    environment:
+      DATABASE_URL: ${DATABASE_URL}
+    restart: unless-stopped
+    networks: [loanwise-net]
+  frontend:
+    image: ACCOUNT_ID.dkr.ecr.ap-south-1.amazonaws.com/loanwise-frontend:latest
+    ports:
+      - "8080:80"
+    depends_on: [backend]
+    restart: unless-stopped
+    networks: [loanwise-net]
+networks:
+  loanwise-net:
+    driver: bridge
